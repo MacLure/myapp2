@@ -8,10 +8,10 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-// import Component1 from './Component1'
+import Component1 from './Component1'
 // import Component2 from './Component2'
 // import Component3 from './Component3'
-import Component4 from './Component4'
+// import Component4 from './Component4'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -25,10 +25,10 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Component4 />
+        <Component1 />
         <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text >To get started, edit App.js</Text>
+        <Text >{instructions}</Text>
       </View>
     );
   }
@@ -37,7 +37,11 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'green',
+    // backgroundColor: 'green',
+    ...Platform.select({
+      ios:{backgroundColor:'gold'},
+      android:{backgroundColor:'green'}
+    })
   },
   welcome: {
     fontSize: 20,
