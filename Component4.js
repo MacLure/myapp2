@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Platform, Button, StyleSheet, Text, View, ScrollView, FlatList} from 'react-native';
 import { formatTestResults } from '@jest/test-result';
+import {Spinner} from 'native-base'
 
 type Props = {};
 export default class Component4 extends Component<Props> {
@@ -47,7 +48,7 @@ export default class Component4 extends Component<Props> {
   render() {
     return (
       <ScrollView style={styles.container}>
-        {!this.state.loaded && <Text>LOADING</Text>}
+        {!this.state.loaded && <Spinner color='cornflowerblue' />}
         <Text style={{fontSize:24}}>API Calls</Text>
         <Button title="Get Data" onPress={this.getData} />
         {this.state.error != null && (<Text>{this.state.error}</Text>)}
