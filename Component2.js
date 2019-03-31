@@ -4,26 +4,28 @@ import {Platform, StyleSheet, Text, View, ScrollView, FlatList} from 'react-nati
 type Props = {};
 export default class Component1 extends Component<Props> {
   render() {
-    const data = {characters: [
-      {id: 123, name:'Michael Scott',profession:'Regional Manager'},
-      {id: 234, name:'Dwight Schrute',profession:'Assistant to the Regional Manager'},
-      {id: 345, name:'Jim Halpert',profession:'Sales'},
-      {id: 456, name:'Pam Beesly',profession:'Receptionist'},
-      {id: 567, name:'Ryan Howard',profession:'Intern'},
-      {id: 678, name:'Andy Bernard',profession:'Accounting'},
-    ]}
+    const characters2 = [
+      {id: 123, key:'Michael Scott',profession:'Regional Manager'},
+      {id: 234, key:'Dwight Schrute',profession:'Assistant to the Regional Manager'},
+      {id: 345, key:'Jim Halpert',profession:'Sales'},
+      {id: 456, key:'Pam Beesly',profession:'Receptionist'},
+      {id: 567, key:'Ryan Howard',profession:'Intern'},
+      {id: 678, key:'Andy Bernard',profession:'Accounting'},
+      {id: 789, key:'Meredith Palmer',profession:'Accounting'},
+      {id: 890, key:'Stanley Hudson',profession:'Accounting'},
+      {id: 901, key:'Angela Martin',profession:'Accounting'},
+
+    ]
     return (
-      <ScrollView style={styles.container}>
-        { data.characters.length > 0 ?
-          data.characters.map(character => (
-            <Character key = {character.id}
-              name={character.name}
-              profession={character.profession}
-            />
-          )):
+      <View style={styles.container}>
+        { characters2.length > 0 ?
+          <FlatList data={characters2} renderItem={({item}) =>
+            <Text style={{fontSize:60, fontWeight:'bold', color:'#333'}}>{item.key}</Text>
+          } />
+          :
           <Text style={{fontSize:48, color:'red'}}>No Characters Available</Text>
         }
-      </ScrollView>
+      </View>
     );
   }
 }
