@@ -19,9 +19,17 @@ export default class Component1 extends Component<Props> {
     return (
       <View style={styles.container}>
         { characters2.length > 0 ?
-          <FlatList data={characters2} renderItem={({item}) =>
-            <Text style={{fontSize:60, fontWeight:'bold', color:'#333'}}>{item.key}</Text>
-          } />
+          <FlatList data={characters2} renderItem={({item}) => (
+            <View style={{borderBottomColor:'#999', padding:10}}>
+            <Text style={{fontSize:60, fontWeight:'bold', color:'#333'}}>
+              {item.key}
+            </Text>
+            <Text style={{fontSize:36, color:'#999'}}>
+            {item.profession}
+            </Text>
+          </View>
+
+          )} /> // FlatLists and Section Lists render items only as they become visible
           :
           <Text style={{fontSize:48, color:'red'}}>No Characters Available</Text>
         }
